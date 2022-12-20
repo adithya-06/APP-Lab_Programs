@@ -1,0 +1,30 @@
+#11
+from tkinter import *
+
+root = Tk()
+
+root.title("Billing")
+nameLabel = Label(root, text="Name :")
+nameLabel.grid(column=0, row=0)
+name = Entry(root)
+name.grid(column=1, row=0)
+productsLabel = Label(root, text="Products :")
+productsLabel.grid(column=0, row=1)
+productsText = Text(root, width=15, height=7)
+productsText.insert(END, "Items\tPrice\n\nPen\t10/-\nPencil\t5/-\nEraser\t10/-\nSharpner\t15/-\n")
+productsText.grid(column=1, row=1)
+quantityLabel = Label(root, text="Quantity :")
+quantityLabel.grid(column=0, row=2)
+quantity = Entry(root)
+quantity.insert(0, "0")
+quantity.grid(column=1, row=2)
+addButton = Button(root, text="Add Items")
+addButton.grid(column=1, row=3)
+showDetailsText = Text(root, width=20, height=5)
+showDetailsText.grid(column=0, row=4, columnspan=2)
+clearItemsButton = Button(root, text="Clear Items")
+clearItemsButton.grid(column=0, row=5)
+totalButton = Button(root, text="Total")
+totalButton.grid(column=1, row=5)
+
+root.mainloop()

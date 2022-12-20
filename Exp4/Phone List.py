@@ -1,0 +1,40 @@
+#10
+from tkinter import *
+from tkinter import ttk
+
+root = Tk()
+
+root.configure(background='grey')
+root.geometry('300x300')
+root.title("Phone List")
+nameLabel = Label(root, text="Name", bg='grey')
+nameLabel.grid(column=0, row=0)
+name = Entry(root)
+name.grid(column=1, row=0)
+phoneLabel = Label(root, text="Phone", bg='grey')
+phoneLabel.grid(column=0, row=1)
+phone = Entry(root)
+phone.grid(column=1, row=1)
+addButton = Button(root, text="Add", bg='light grey')
+addButton.grid(column=0, row=2)
+updateButton = Button(root, text="Update", bg='light grey')
+updateButton.grid(column=1, row=2)
+deleteButton = Button(root, text="Delete", bg='light grey')
+deleteButton.grid(column=2, row=2)
+
+phoneListTable = ttk.Treeview(root,columns=("name", "phone"),show="headings",height=5,selectmode="browse",padding=10)
+phoneListTable.heading("name", text="Name")
+phoneListTable.heading("phone", text="Phone")
+phoneListTable.place(x = 30, y = 95)
+phoneListTable.column("name", width=100)
+phoneListTable.column("phone", width=100)
+phoneListTable.insert("", 0, text="First", values=("Barnhart, Ralph", "683-2341"))
+phoneListTable.insert("", 1, text="Second", values=("Jones, Janet", "483-5432"))
+phoneListTable.insert("", 2, text="Third", values=("Meyers, Chris", "343-4349"))
+phoneListTable.insert("", 3, text="fourth", values=("Nelson, Eric", "485-2689"))
+phoneListTable.insert("", 4, text="fifth", values=("Prefect, Ford", "987-6543"))
+phoneListTable.insert("", 5, text="sixth", values=("Smith, Bob", "689-1234"))
+phoneListTable.insert("", 6, text="seventh", values=("Smith, Robert", "689-1234"))
+phoneListTable.grid(column=0, row=3, columnspan=3)
+
+root.mainloop()
